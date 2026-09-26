@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffe9f2">
+  <title>CatTinder 🐱 — swipe for a purr-fect match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating hearts backdrop -->
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="icon-btn" id="matchesBtn" aria-label="View your matches" title="Your matches">
+      <span class="icon">💗</span>
+      <span class="badge" id="matchesCount">0</span>
+    </button>
+    <h1 class="logo">Cat<span>Tinder</span></h1>
+    <div class="topbar-right">
+      <button class="icon-btn" id="undoBtn" aria-label="Undo last swipe" title="Undo (U)">↶</button>
+      <button class="icon-btn" id="resetBtn" aria-label="Reset everything and start over" title="Start over">↺</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div class="deck" id="deck"></div>
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Fetching cats… 🐾</p>
+    </div>
+  </main>
+
+  <section class="actions" aria-label="Cat actions">
+    <button class="action nope" id="nopeBtn" aria-label="Nope — swipe left" title="Nope (←)">✕</button>
+    <button class="action super" id="superBtn" aria-label="Super like — guaranteed match" title="Super like (↑)">★</button>
+    <button class="action like" id="likeBtn" aria-label="Like — swipe right" title="Like (→)">♥</button>
+  </section>
+
+  <p class="stats" id="stats">
+    <span>💔 <b id="statNopes">0</b></span>
+    <span>❤️ <b id="statLikes">0</b></span>
+    <span>⭐ <b id="statSupers">0</b></span>
+  </p>
+  <p class="hint">Swipe the card, tap the buttons, or use ← → ↑ keys</p>
+
+  <!-- Match celebration modal -->
+  <div class="overlay hidden" id="matchOverlay">
+    <div class="match-card">
+      <div class="burst" id="burst" aria-hidden="true"></div>
+      <h2 class="match-title" id="matchTitle">It's a match! 💘</h2>
+      <p class="match-sub">You and <strong id="matchName">Whiskers</strong> both swiped right</p>
+      <div class="match-photo" id="matchPhoto"></div>
+      <p class="match-quote" id="matchQuote">“I’m pawsitively smitten.”</p>
+      <button class="primary-btn" id="keepSwipingBtn">Keep swiping 🐾</button>
+    </div>
+  </div>
+
+  <!-- Matches list modal -->
+  <div class="overlay hidden" id="matchesOverlay">
+    <div class="sheet">
+      <div class="sheet-head">
+        <h2>💗 Your matches</h2>
+        <button class="close-btn" id="closeMatchesBtn" aria-label="Close matches">✕</button>
+      </div>
+      <div class="matches-grid" id="matchesGrid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
